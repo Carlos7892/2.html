@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitio de Descargas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .download-button {
+      background-color: #428bca;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sitio de Descargas</h1>
+  </header>
+  <div class="container">
+    <h2>Descargar Archivos</h2>
+    <a href="https://mega.nz/folder/wpskwBBY#OWNlnTnFgDIkYcmAAZ2Upg" class="download-button" download>Descargar Archivo</a>
+    <div id="progress"></div>
+  </div>
+
+  <script>
+    function startDownload() {
+      var progress = document.getElementById('progress');
+      var percent = 0;
+      var interval = setInterval(function() {
+        percent += 1;
+        progress.style.width = percent + '%';
+        progress.innerHTML = percent + '%';
+
+        if (percent >= 100) {
+          clearInterval(interval);
+          progress.innerHTML = 'Descarga completada';
+        }
+      }, 50);
+    }
+  </script>
+</body>
+</html>
